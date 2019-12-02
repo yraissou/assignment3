@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>a3yassin</title>
+</head>
+<body>
+<?php
+   include 'connecttodb.php';
+?>
+<h1>Doctor deleting</h1>
+<ol>
+<?php
+   $docLicNum= $_POST["docLicNum"];
+   $query = 'DELETE FROM doctor WHERE docLicNum="' . $docLicNum . '"';
+   if (!mysqli_query($connection, $query)) {
+        die("Error: delete failed" . mysqli_error($connection));
+    }
+   echo "Your doctor was deleted!";
+   mysqli_close($connection);
+?>
+</ol>
+</body>
+</html>
+
